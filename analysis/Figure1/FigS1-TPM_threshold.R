@@ -1,10 +1,7 @@
 library(dplyr)
 library(ggplot2)
-
 dat <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/freeze_mastertable_RNAseq+histone+ATAC+DNase_ALL_Transcripts_0.1.txt', sep = '\t', header = T)
-
 cutoffs <- c(seq(0.1, 1, 0.1), seq(1.5, 5, 0.5))
-
 th_counts <- map_df(cutoffs, function(t) {
   dat %>%                                 
     filter(avgTPM >= t) %>%  
@@ -12,8 +9,6 @@ th_counts <- map_df(cutoffs, function(t) {
     count(geneType, name = "n_transcripts") %>% 
     mutate(cutoff = t)
 })
-
-cols <- 
 
 p <- ggplot(th_counts,
        aes(x = cutoff, y = n_transcripts,
