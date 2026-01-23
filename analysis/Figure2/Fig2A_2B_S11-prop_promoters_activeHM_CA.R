@@ -4,9 +4,9 @@ library(stringr)
 library(reshape2)
 library(tidyverse)
 df <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/freeze_mastertable_RNAseq+histone+ATAC+DNase_filtered.txt', sep = '\t', header = T)
+#df <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/freeze_mastertable_RNAseq+histone+ATAC+DNase_up1kb_only_filtered.txt', sep = '\t', header = T) ## upstream TSS
 cols_1 <- c('protein_coding' = 'black', 'lncRNA' = 'gray', 'pseudogene' = '#BEB6DD')
 cols_2 <- c('protein_coding' = 'black', 'lncRNA' = 'gray','unprocessed_pseudogene' = '#edae49', 'processed_pseudogene' = '#d1495b', 'unitary_pseudogene' = '#00798c')
-
 # combine three types of pseudogenes, and compare them with protein_coding and lncRNA transcripts
 long_data <- df %>% filter(RAMPAGE == "True") %>%
   mutate(geneType = if_else(str_detect(geneType, 'pseudogene'), 'pseudogene', geneType)) %>%
