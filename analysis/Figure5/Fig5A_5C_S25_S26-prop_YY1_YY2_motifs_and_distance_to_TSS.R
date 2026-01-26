@@ -164,22 +164,6 @@ calculate_enrichment_p(rbind(YY1_0.696_pcg, YY1_0.696_processed_pgene))
 calculate_enrichment_p(rbind(Yy1_0.712_unprocessed_pgene, Yy1_0.712_processed_pgene))
 calculate_enrichment_p(rbind(YY2_0.784_unprocessed_pgene, YY2_0.784_processed_pgene))
 
-
-YY1_0.696_processed_pgene$promoter_id
-Yy1_0.712_processed_pgene$promoter_id
-YY2_0.784_processed_pgene$promoter_id
-
-library(ggVennDiagram)
-venn_input <- list(
-  YY1_0.696 = YY1_0.696_processed_pgene$promoter_id,
-  Yy1_0.712 = Yy1_0.712_processed_pgene$promoter_id,
-  YY2_0.784 = YY2_0.784_processed_pgene$promoter_id)
-
-p4 <- ggVennDiagram(venn_input, label_alpha = 0) +
-  scale_fill_gradient(low = "#c9def4", high = "#b190ba")
-ggsave('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/plots/processed_pgene_overlap.pdf', p4, width = 8, height = 8)
-
-
 # calculate the proportion
 numerator_processed_pgene <- unique(c(YY1_0.696_processed_pgene$promoter_id, Yy1_0.712_processed_pgene$promoter_id))
 denominator_processed_pgene <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/processed_pgene/YY1_0.696_processed_pgene_promoters.all.txt', skip = 1, sep = '\t') %>% pull(V1)
