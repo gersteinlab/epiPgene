@@ -9,7 +9,7 @@ rmsk <- read.table('promoter_regions_rmsk.txt')
 rmsk <- rmsk %>% mutate(element_len = if_else(V8 != '.', V10-V9, NA)) %>% 
   dplyr::rename(overlap_len = V23, chr = V1, start = V2, end = V3, gene_id = V4, score = V5, strand = V6, transcript_id = V7)
 
-mapping <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/parent/tss1kb_comparison/tss1kb_inclusion_identity.txt', sep = '\t', header = T)
+mapping <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/analysis/fig3/fig3A_tss1kb_comparison/tss1kb_inclusion_identity.txt', sep = '\t', header = T)
 parentGene_unprocessed <- mapping %>% filter(geneType == 'Unprocessed') %>% pull(ParentGene) %>% unique()
 parentGene_processed <- mapping %>% filter(geneType == 'Processed') %>% pull(ParentGene) %>% unique()
 
@@ -114,7 +114,7 @@ tbl1 <- data_to_plot %>%
 
 tbl2 <- data_to_plot %>%
   na.omit() %>%
-  filter(geneType %in% c('processed_pseudogene', 'unprocessed_pseudogene'), repClass_simplified %in% c('LINE', 'SINE')) %>%
+  filter(geneType %in% c('processed_pseudogene', 'unprocessed_pseudogene', 'protein_coding', 'lncRNA'), repClass_simplified %in% c('LINE', 'SINE')) %>%
   group_by(repClass_simplified) %>%
   wilcox_test(js~geneType, ref.group = 'processed_pseudogene', p.adjust.method = 'fdr') %>% ungroup()
 

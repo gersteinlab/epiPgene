@@ -42,4 +42,14 @@ for (TISSUE in c('Colon_Transverse', 'Muscle_Skeletal')) {
 (figures[["Colon_Transverse"]] / figures[["Muscle_Skeletal"]]) + plot_layout(axes = "collect", axis_titles = "collect")
 ggsave('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/analysis/fig2/AB_compartments.pdf', width = 5, height = 6)
 
+## p-value
+TISSUE <- 'Muscle_Skeletal'
+AB_compartment <- read.table(paste0('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/in_situ_HiC/bwAverageOverBed/', TISSUE, '.bed'))
+colnames(AB_compartment) <- c('chr', 'start', 'end', 'transcript_id', 'signal')
+
+df %>% filter(tissue == TISSUE, RAMPAGE == "True") %>%
+  merge(AB_compartment, by = c('chr', 'start', 'end', 'transcript_id')) %>%
+  group_by(geneType) %>%
+  filter(n() >= 5) %>% ungroup() %>%
+  rstatix::wilcox_test(signal~geneType, ref.group = 'processed_pseudogene')
   
