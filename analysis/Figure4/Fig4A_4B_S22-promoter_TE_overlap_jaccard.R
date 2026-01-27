@@ -4,6 +4,7 @@ library(dplyr)
 library(ggplot2)
 library(ComplexUpset)
 library(tidyverse)
+library(ggpubr)
 setwd('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/intersection/repetitive_elements/')
 rmsk <- read.table('promoter_regions_rmsk.txt')
 rmsk <- rmsk %>% mutate(element_len = if_else(V8 != '.', V10-V9, NA)) %>% 
