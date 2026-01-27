@@ -2,17 +2,17 @@ rm(list = ls())
 library(dplyr)
 library(ggplot2)
 ## closest distance
-YY1_processed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/rev/processed_pgene/closest_with_L1/YY1_0.696_processed_pgene.txt')
-Yy1_processed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/rev/processed_pgene/closest_with_L1/Yy1_0.712_processed_pgene.txt')
+YY1_processed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/processed_pgene/closest_with_L1/YY1_0.696_processed_pgene.txt')
+Yy1_processed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/processed_pgene/closest_with_L1/Yy1_0.712_processed_pgene.txt')
 
-YY1_unprocessed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/rev/unprocessed_pgene/closest_with_L1/YY1_0.696_unprocessed_pgene.txt')
-Yy1_unprocessed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/rev/unprocessed_pgene/closest_with_L1/Yy1_0.712_unprocessed_pgene.txt')
+YY1_unprocessed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/unprocessed_pgene/closest_with_L1/YY1_0.696_unprocessed_pgene.txt')
+Yy1_unprocessed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/unprocessed_pgene/closest_with_L1/Yy1_0.712_unprocessed_pgene.txt')
 
-YY1_lncRNA <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/rev/lncRNA/closest_with_L1/YY1_0.696_lncRNA.txt')
-Yy1_lncRNA <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/rev/lncRNA/closest_with_L1/Yy1_0.712_lncRNA.txt')
+YY1_lncRNA <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/lncRNA/closest_with_L1/YY1_0.696_lncRNA.txt')
+Yy1_lncRNA <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/lncRNA/closest_with_L1/Yy1_0.712_lncRNA.txt')
 
-YY1_pcg <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/rev/pcg/closest_with_L1/YY1_0.696_protein_coding.txt')
-Yy1_pcg <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/rev/pcg/closest_with_L1/Yy1_0.712_protein_coding.txt')
+YY1_pcg <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/pcg/closest_with_L1/YY1_0.696_protein_coding.txt')
+Yy1_pcg <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/pcg/closest_with_L1/Yy1_0.712_protein_coding.txt')
 
 df1 <- rbind(YY1_processed, Yy1_processed) %>% mutate(geneType = 'processed_pseudogene') %>%
   select(V22, geneType)
@@ -63,5 +63,5 @@ ggsave('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/analysis/fig5/plots/closest_dista
 
 # overlap
 rm(list = ls())
-YY1_processed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/rev/processed_pgene/overlap_with_L1/YY1_0.696_processed_pgene.txt')
-Yy1_processed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/rev/processed_pgene/overlap_with_L1/Yy1_0.712_processed_pgene.txt')
+YY1_processed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/processed_pgene/overlap_with_L1/YY1_0.696_processed_pgene.txt')
+Yy1_processed <- read.table('/gpfs/gibbs/pi/gerstein/yj329/epiPgene/motif_analysis/processed_pgene/overlap_with_L1/Yy1_0.712_processed_pgene.txt')
