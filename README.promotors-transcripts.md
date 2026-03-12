@@ -1,4 +1,4 @@
-We have provided a comprehensive table for characterizing promoter activity of GENCODE v29 transcripts across tissues. Please visit [here](http://meetings.gersteinlab.org/2025/02.24/promoters-transcripts.txt.zip) to download.
+We have provided a comprehensive table for characterizing promoter activity of GENCODE v29 transcripts across tissues. Please visit [here](https://zenodo.org/records/14934024) to download.
 
 The dataset contains the following columns, each representing specific information about promoter regions and related biological data:
 
@@ -20,7 +20,6 @@ The dataset contains the following columns, each representing specific informati
 
 **11–16.** Length of overlap between the promoter regions and peaks from various histone mark ChIP-seq datasets, including H3K27ac, H3K4me3, H3K27me3, H3K36me3, H3K4me1, and H3K9me3. “NA” indicates missing experimental data, and a value of “0” indicates no overlap between the promoter region and the corresponding peak.
 
-**17–18.** Length of overlap between the promoter regions and peaks from DNase-seq and ATAC-seq data.
+**17-18.** Length of overlap between the promoter regions and peaks from DNase-seq and ATAC-seq data.
 
 **19–22.** Number of CpG sites within the promoters and different levels of methylation.
-
