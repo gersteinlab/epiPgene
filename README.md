@@ -1,4 +1,9 @@
 # Epigenetic characterization of pseudogenes across human tissues
+![Overview of the study](Fig1AB.png)
+*Created with BioRender.com.*
+
+
+
 
 ## Overview
 To address the limited understanding of pseudogene promoter regulation in a tissue-resolved context, we leveraged matched multi-tissue transcriptomic and epigenomic profiles from the ENCODE-GTEx (EN-TEx) project (Rozowsky et al. 2023), spanning 26 adult human tissues. With these data, we first aimed to systematically annotate the epigenetic status of promoters associated with protein-coding genes, lncRNAs, and pseudogenes, generating a publicly available resource to facilitate exploration of the regulatory landscape of pseudogenes. Then, using this framework, we turned to investigate potential differences in epigenetic patterns between protein-coding genes and pseudogene transcripts, as well as among different pseudogene biotypes. 
